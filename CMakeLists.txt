@@ -1,9 +1,10 @@
-cmake_minimum_required(VERSION 4.4.4)
-
-project(SDLTut)
+cmake_minimum_required(VERSION 3.24)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(SDLTut src/main.cpp)
-target_sources(SDLTut PRIVATE src/main.cpp)
+set(BUILD_SHARED_LIBS OFF)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+add_subdirectory(src)
+add_subdirectory(vendor)
