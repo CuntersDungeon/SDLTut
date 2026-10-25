@@ -1,9 +1,10 @@
-cmake_minimum_required(VERSION 4.4.4)
+add_subdirectory(SDL)
 
-project(SDLTut)
+set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+set(SDL_SHARED OFF CACHE BOOL "" FORCE)
+set(SDL_STATIC ON CACHE BOOL "" FORCE)
 
-set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+add_subdirectory(vendor/SDL EXCLUDE_FROM_ALL)
 
-add_executable(SDLTut src/main.cpp)
-target_sources(SDLTut PRIVATE src/main.cpp)
+add_library(vendor INTERFACE)
+target_link_libraries(vendor INTERFACE SDL3::SDL3)
